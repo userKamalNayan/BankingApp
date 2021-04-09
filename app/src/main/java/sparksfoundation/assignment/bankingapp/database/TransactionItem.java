@@ -5,12 +5,15 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import io.reactivex.annotations.NonNull;
+
 @Entity(tableName = "Transactions", indices = @Index(value = "transactionId",unique = true))
 public class TransactionItem {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "transactionId")
-    private int transactionId;
+    @NonNull
+    private long transactionId;
 
     @ColumnInfo(name = "userId")
     private int userId;
@@ -35,14 +38,25 @@ public class TransactionItem {
     @ColumnInfo(name = "amountSent")
     private double amountSent;
 
+    @ColumnInfo(name = "credit")
+    private boolean credit;
+
+    public boolean isCredit() {
+        return credit;
+    }
+
+    public void setCredit(boolean credit) {
+        this.credit = credit;
+    }
+
     public TransactionItem() {
     }
 
-    public int getTransactionId() {
+    public long getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(long transactionId) {
         this.transactionId = transactionId;
     }
 

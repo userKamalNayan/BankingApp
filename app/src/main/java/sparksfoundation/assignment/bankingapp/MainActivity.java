@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
     private void addUser() {
         System.out.println("In add User");
         List<UserItem> users = new ArrayList<>();
+        UserItem userItem;
 
-        UserItem userItem = new UserItem();
+        userItem = new UserItem();
         userItem.setName("Kamal Nayan");
         userItem.setCurrentBalance(100000000000.0);
         userItem.setEmail("Kamalnayan.email@gmail.com");
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
          userItem = new UserItem();
         userItem.setName("Abhishek Kalia");
         userItem.setCurrentBalance(100000.0);
-        userItem.setEmail("Ridham.email@gmail.com");
+        userItem.setEmail("Abhishek.email@gmail.com");
         users.add(userItem);
 
          userItem = new UserItem();

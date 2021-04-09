@@ -22,6 +22,11 @@ public class LocalTransactionDataSource implements TransactionDataSource {
     }
 
     @Override
+    public Flowable<List<TransactionItem>> getAllTransactions() {
+        return transactionDAO.getAllTransactions();
+    }
+
+    @Override
     public Completable addTransaction(TransactionItem... transactionItems) {
         return transactionDAO.addTransaction(transactionItems);
     }

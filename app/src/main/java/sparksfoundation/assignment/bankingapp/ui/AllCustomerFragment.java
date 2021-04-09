@@ -22,6 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import sparksfoundation.assignment.bankingapp.R;
 import sparksfoundation.assignment.bankingapp.adapter.AllCustomerAdapter;
+import sparksfoundation.assignment.bankingapp.common.Common;
 import sparksfoundation.assignment.bankingapp.database.UserItem;
 
 public class AllCustomerFragment extends Fragment {
@@ -49,9 +50,9 @@ public class AllCustomerFragment extends Fragment {
             @Override
             public void onChanged(List<UserItem> userItems) {
 
-                AllCustomerAdapter allCustomerAdapter = new AllCustomerAdapter(userItems,getContext());
+                AllCustomerAdapter allCustomerAdapter = new AllCustomerAdapter(userItems,getContext(),true);
                 recyclerView.setAdapter(allCustomerAdapter);
-
+                Common.usersList = userItems;
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 import sparksfoundation.assignment.bankingapp.database.transaction.TransactionDAO;
 
 @androidx.room.Database(entities = {TransactionItem.class, UserItem.class},
-        exportSchema = false, version = 1)
+        exportSchema = false, version = 2)
 public abstract class Database extends RoomDatabase {
 
     public abstract UserDAO userDAO();
@@ -22,6 +22,7 @@ public abstract class Database extends RoomDatabase {
         if (instance == null) {
             instance = Room.databaseBuilder(context,
                     Database.class, "BankDatabase")
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return instance;

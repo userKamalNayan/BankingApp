@@ -14,10 +14,14 @@ import sparksfoundation.assignment.bankingapp.database.TransactionItem;
 @Dao
 public interface TransactionDAO {
 
-    @Query("Select * From Transactions where transactionId like :userId")
+    @Query("Select * From Transactions where userId like :userId")
     Flowable<List<TransactionItem>> getUserTransactions(int userId);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Query("Select * From Transactions ")
+    Flowable<List<TransactionItem>> getAllTransactions();
+
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     Completable addTransaction(TransactionItem... transactionItems);
 
 

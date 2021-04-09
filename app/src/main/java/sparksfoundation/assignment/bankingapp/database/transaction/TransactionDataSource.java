@@ -12,5 +12,7 @@ import sparksfoundation.assignment.bankingapp.database.TransactionItem;
 public interface TransactionDataSource {
     Flowable<List<TransactionItem>> getUserTransactions(int userId);
 
+    Flowable<List<TransactionItem>> getAllTransactions();
+
     Completable addTransaction(TransactionItem... transactionItems);
 }

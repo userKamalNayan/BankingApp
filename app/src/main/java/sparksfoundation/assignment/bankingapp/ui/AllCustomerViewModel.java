@@ -59,6 +59,7 @@ public class AllCustomerViewModel extends ViewModel {
                     }
                 },
                         throwable -> {
+                    System.out.println("All customer fetch error "+throwable.getMessage());
                             Toast.makeText(context,"Some Error occurred", Toast.LENGTH_LONG).show();
                         });
     }
